@@ -48,10 +48,10 @@ jobs:
       - name: Terraform Init
         run: terraform init
         
-      # Step 6 : terraform Plan
+      # Step 7 : terraform Plan
       - name: Terraform Plan
         run: terraform plan
 
-      # Add apply only after reviewing the plan
+      # Step 8 Add apply only after reviewing the plan
       - name: Terraform Apply
         run: terraform apply -auto-approve      
