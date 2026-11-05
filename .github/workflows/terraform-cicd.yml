@@ -1,0 +1,40 @@
+
+name: AWS OIDC Authentication Test
+
+on:
+  workflow_dispatch:
+
+# Required permissions for OIDC
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  aws-oidc:
+    name: Connect GitHub to AWS
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Step 1: Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Configure AWS credentials using OIDC
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v6.3.0
+        with:
+          role-to-assume: arn:aws:iam::309191981782:role/OIDC-role
+          aws-region: us-east-1
+          role-session-name: GitHubActionsSession
+
+      # Step 3: Verify AWS authentication
+      - name: Verify AWS Identity
+        run: |
+          aws sts get-caller-identity
+
+      # Step 4: Verify EC2 access
+      - name: List EC2 Instances
+        run: |
+          aws ec2 describe-instances \
+            --region us-east-1
