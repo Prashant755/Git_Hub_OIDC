@@ -1,15 +1,23 @@
-resource "aws_vpc" "name" {
-    cidr_block = var.cidr
-    tags={
-        Name = var.name_tags   
-    }
-  
+variable "cidr" {
+  description = "CIDR block for the VPC"
+  type        = string
+  default     = "10.0.0.0/16"
 }
 
-resource "aws_subnet" "dev"{
-    cidr_block = var.subnet_cidr
-    vpc_id = aws_vpc.name.id
-    tags = {
-        Name = var.subnet_tag
-    }
+variable "name_tags" {
+  description = "Name tag for the VPC"
+  type        = string
+  default     = "dev-vpc"
+}
+
+variable "subnet_cidr" {
+  description = "CIDR block for the subnet"
+  type        = string
+  default     = "10.0.1.0/24"
+}
+
+variable "subnet_tag" {
+  description = "Name tag for the subnet"
+  type        = string
+  default     = "dev-subnet"
 }
