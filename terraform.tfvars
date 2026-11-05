@@ -1,5 +1,5 @@
 aws_region    = "us-east-1"
 instance_type = "t3.micro"
-instance_name = "prashant-ec2-runner"
+instance_name = "prashant-ec2-maven"
 key_name      = "05-11-2026"
 admin_cidr    = "122.162.148.64/32"
