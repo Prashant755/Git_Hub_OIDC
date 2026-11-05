@@ -1,8 +1,3 @@
-# AWS Provider
-provider "aws" {
-  region = var.aws_region
-}
-
 # Get latest Amazon Linux 2023 AMI
 data "aws_ssm_parameter" "amazon_linux" {
   name = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
