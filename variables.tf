@@ -1,23 +1,27 @@
-variable "cidr" {
-  description = "CIDR block for the VPC"
+variable "aws_region" {
+  description = "AWS region"
   type        = string
-  default     = "10.0.0.0/16"
+  default     = "us-east-1"
 }
 
-variable "name_tags" {
-  description = "Name tag for the VPC"
+variable "instance_type" {
+  description = "EC2 instance type"
   type        = string
-  default     = "dev-vpc"
+  default     = "t3.micro"
 }
 
-variable "subnet_cidr" {
-  description = "CIDR block for the subnet"
+variable "instance_name" {
+  description = "EC2 instance name"
   type        = string
-  default     = "10.0.1.0/24"
+  default     = "prashant-terraform-ec2"
 }
 
-variable "subnet_tag" {
-  description = "Name tag for the subnet"
+variable "key_name" {
+  description = "Existing AWS EC2 key pair name"
   type        = string
-  default     = "dev-subnet"
+}
+
+variable "admin_cidr" {
+  description = "Your public IP address with /32"
+  type        = string
 }
