@@ -38,20 +38,19 @@ jobs:
         run: |
           aws ec2 describe-instances \
             --region us-east-1
-                aws-region: us-east-1
-    
-      # Step 5: terraform setup
+
+      # Step 5: Setup Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      # Step 6 : terraform init  
+      # Step 6: Terraform Init
       - name: Terraform Init
         run: terraform init
-        
-      # Step 7 : terraform Plan
+
+      # Step 7: Terraform Plan
       - name: Terraform Plan
         run: terraform plan
 
-      # Step 8 Add apply only after reviewing the plan
+      # Step 8: Terraform Apply
       - name: Terraform Apply
-        run: terraform apply -auto-approve      
+        run: terraform apply -auto-approve
