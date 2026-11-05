@@ -1,5 +1,5 @@
 
-name: AWS OIDC Authentication Test
+name: AWS OIDC Test with TF code deploy
 
 on:
   workflow_dispatch:
